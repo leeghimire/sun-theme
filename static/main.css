@@ -1,17 +1,20 @@
 body {
+  font-family: monospace;
   font-size: 0.9em;
   line-height: 1.5;
+  background-color: #FAEBD7;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.2em;
-  color: #000;
+  color: black;
 }
 
 a {
-  color: #000;
+  color: black;
   text-decoration: underline;
 }
+
 a:hover {
   color: grey;
 }
@@ -41,16 +44,16 @@ th {
 }
 
 .abstract {
-  border: double;
+  border: 1px solid black;
   padding: 4px;
 }
 
 #TableOfContents {
-  border: 1px solid black;
+  border: 1px dashed black;
 }
 
 .highlight pre {
-  background: white !important;
+  background: #FAEBD7 !important;
   color: black !important;
   border: 1px dashed black;
   padding: 10px !important;
