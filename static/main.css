@@ -3,12 +3,6 @@ body {
   line-height: 1.5;
 }
 
-main.content {
-  max-width: 680px;
-  padding: 1em;
-  margin: 0 auto;
-}
-
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.2em;
   color: #000;
@@ -18,13 +12,26 @@ a {
   color: #000;
   text-decoration: underline;
 }
+a:hover {
+  color: grey;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+main.content {
+  max-width: 680px;
+  padding: 1em;
+  margin: 0 auto;
+}
 
 table {
   width: 100%;
 }
 
 th, td {
-  border: none;
   text-align: left;
 }
 
@@ -34,9 +41,17 @@ th {
 }
 
 .abstract {
-    border: double;
-    padding: 4px;
+  border: double;
+  padding: 4px;
 }
 
-.toc {
+#TableOfContents {
+  border: 1px solid black;
+}
+
+.highlight pre {
+  background: white !important;
+  color: black !important;
+  border: 1px dashed black;
+  padding: 10px !important;
 }

@@ -1,5 +1,5 @@
 {{ define "main" }}
-<main class="list">
+<main>
   <table>
     <thead>
       <tr>
@@ -17,7 +17,7 @@
         <td>{{ .Params.importance }}</td>
         <td>
           {{ range .Params.tags }}
-          <a href="/tags/{{ . }}">#{{ . }}</a>
+            <a href="/tags/{{ . }}">#{{ . }}</a>
           {{ end }}
         </td>
       </tr>

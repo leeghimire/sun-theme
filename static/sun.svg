@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" version="1.1" xmlns="http://www.w3.org/2000/svg">
+ <!-- This is literally just stolen from wikipedia. Listen the site is 
+ low effort the theming is low effort what do you expect... 
+
+ thank you mr, https://commons.wikimedia.org/wiki/User:Mrmw
+ -->
+ <path d="m291.99 120.88v27.052h-72.261q23.716 13.526 38.725 34.278 15.008 20.567 15.008 43.727 0 30.201-23.902 50.027-23.716 19.826-53.918 19.826-35.76 0-61.699-27.978-25.94-28.163-25.94-65.406 0-26.31 13.526-46.506 13.711-20.196 31.684-27.608 18.158-7.4114 48.915-7.4114zm-84.675 27.052h-6.4852q-27.793 0-44.468 13.896-16.49 13.711-16.49 43.172 0 31.313 17.416 55.4 17.417 23.902 40.763 23.902 18.713 0 30.942-17.973 12.229-18.158 12.229-43.727 0-40.577-33.907-74.67z"/>
+</svg>
