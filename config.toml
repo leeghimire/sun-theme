@@ -1,0 +1,11 @@
+title = "Lee Ghimire"
+baseURL = 'https://leeghimire.com'
+languageCode = 'en-us'
+
+[params]
+  favicon = "/favicon.ico"
+
+  #list items
+  authorsinlist = true
+  datesinlist = true
+  taglist = true

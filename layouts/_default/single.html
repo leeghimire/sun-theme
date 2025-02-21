@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main class="content">
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+      <p>
+        <time>{{ .Date.Format "2006-01-02" }}</time>
+        {{ with .Params.tags }} •
+          {{ range . }} <a href="/tags/{{ . }}">#{{ . }}</a> {{ end }}
+        {{ end }}
+      </p>
+      {{ if .TableOfContents }}
+        <nav class="toc">
+    	  {{ .TableOfContents }}
+    	</nav>
+      {{ end }}
+      {{ with .Params.abstract }}
+      <div class="abstract">
+        {{ . }}
+      </div>
+      {{ end }}
+    </header>
+    {{ .Content }}
+  </article>
+</main>
+{{ end }}
