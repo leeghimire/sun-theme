@@ -1,61 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ .Site.LanguageCode | default `en` }}">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ .Title }} • Lee Ghimire</title>
+  <meta charset="utf‑8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }} • Lee Ghimire</title>
   <link rel="canonical" href="{{ .Permalink }}">
-  
-  <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}Lee Ghimire's Personal Website{{ end }}">
-  <meta name="keywords" content="{{ with .Params.keywords }}{{ delimit . ", " }}{{ else }}Lee Ghimire, blog, portfolio{{ end }}">
-  
-  <meta name="dc.rights" content="https://creativecommons.org/publicdomain/zero/1.0/">
-  <meta name="dcterms.rights" content="CC PD-0">
-  <link rel="schema.dcterms" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">
+
+  <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}Lee Ghimire’s personal website{{ end }}">
+  <meta name="keywords"    content="{{ with .Params.keywords }}{{ delimit . `, ` }}{{ else }}Lee Ghimire,blog,portfolio{{ end }}">
+
+  <meta name="dc.rights"        content="https://creativecommons.org/publicdomain/zero/1.0/">
+  <meta name="dcterms.rights"   content="CC PD‑0">
+  <link rel="schema.dcterms"    href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">
 
   {{ $schema := .Params.schema_type | default "WebPage" }}
   {{ if or (eq $schema "ScholarlyArticle") (eq $schema "Book") }}
     <meta name="citation_title" content="{{ .Title }}">
     {{ with .Params.abstract }}<meta name="citation_abstract" content="{{ . }}">{{ end }}
-    {{ $authors := .Params.authors }}
-    {{ if not $authors }}
-      <meta name="citation_author" content="Lee Ghimire">
-    {{ else if eq (printf "%T" $authors) "string" }}
-      <meta name="citation_author" content="{{ $authors }}">
-    {{ else }}
-      {{ range $authors }}
-        <meta name="citation_author" content="{{ . }}">
-      {{ end }}
-    {{ end }}
+    {{ $authors := .Params.authors | default (slice "Lee Ghimire") }}
+    {{ range $authors }}<meta name="citation_author" content="{{ . }}">{{ end }}
   {{ end }}
 
-  <meta property="og:site" content="leeghimire.com">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="{{ .Title }}">
-  <meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}Lee Ghimire's Personal Website{{ end }}">
-  <meta property="og:image" content="/sun.svg">
-  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name"    content="leeghimire.com">
+  <meta property="og:type"         content="article">
+  <meta property="og:title"        content="{{ .Title }}">
+  <meta property="og:description"  content="{{ with .Params.description }}{{ . }}{{ else }}Lee Ghimire’s personal website{{ end }}">
+  <meta property="og:image"        content="{{ .Site.BaseURL }}sun.svg">
+  <meta property="og:url"          content="{{ .Permalink }}">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:creator" content="Lee Ghimire">
-  <meta name="twitter:site" content="leeghimire.com">
-  <meta name="twitter:title" content="{{ .Title }}">
-  <meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}Lee Ghimire's Personal Website{{ end }}">
-  <meta name="twitter:image" content="/sun.svg">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:creator"     content="@LeeGhimire">
+  <meta name="twitter:site"        content="@LeeGhimire">
+  <meta name="twitter:title"       content="{{ .Title }}">
+  <meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}Lee Ghimire’s personal website{{ end }}">
+  <meta name="twitter:image"       content="{{ .Site.BaseURL }}sun.svg">
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "{{ $schema }}",
-    "name": "{{ .Title }}",
-    "description": "{{ with .Params.description }}{{ . }}{{ else }}Lee Ghimire's Personal Website{{ end }}",
-    "url": "{{ .Permalink }}",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Lee Ghimire"
-    }{{ with .Params.abstract }}, 
-    "abstract": "{{ . }}"
-    {{ end }}
+    "@context":"https://schema.org",
+    "@type":"{{ $schema }}",
+    "name":"{{ .Title }}",
+    "description":"{{ with .Params.description }}{{ . }}{{ else }}Lee Ghimire’s personal website{{ end }}",
+    "url":"{{ .Permalink }}",
+    "publisher":{"@type":"Organization","name":"Lee Ghimire"}{{ with .Params.abstract }},"abstract":"{{ . }}"{{ end }}
   }
   </script>
 
@@ -64,7 +51,8 @@
 </head>
 <body>
   {{ block "main" . }}{{ end }}
-  <script src="/sort.js"></script>
-  <script src="/clip.js"></script>
+  <script src="/sort.js" defer></script>
+  <script src="/clip.js" defer></script>
 </body>
 </html>
+

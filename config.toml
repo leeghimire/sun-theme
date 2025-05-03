@@ -1,13 +1,24 @@
-title = "Lee Ghimire"
-baseURL = 'https://leeghimire.com'
-languageCode = 'en-us'
+baseURL           = "https://leeghimire.com/"
+title             = "Lee Ghimire"
+languageCode      = "en-us"
+theme             = "sun-theme"
+enableRobotsTXT   = true
+pluralizeListTitles = false
+disableKinds      = ["taxonomy"]
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+
+  [markup.goldmark.renderer]
+    unsafe = true
+
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel   = 4
+    ordered    = false
 
 [params]
-  favicon = "/favicon.ico"
-
-  #list items
-  authorsinlist = true
-  datesinlist = true
-  taglist = true
-
-
+  author       = "Lee Ghimire"
+  description  = "Lee Ghimire’s personal website"
+  keywords     = ["Lee Ghimire","blog","portfolio"]
+  images       = ["sun.svg"]
