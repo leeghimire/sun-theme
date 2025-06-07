@@ -3,27 +3,11 @@
   <article>
     <header>
       <h1>{{ .Title }}</h1>
-
-      {{ $authors := .Params.authors | default (slice "Lee Ghimire") }}
-      <p class="authors">{{ delimit $authors " • " }}</p>
-
-      <p>
-        <time datetime="{{ .Date }}">{{ .Date.Format "2006-01-02" }}</time>
-        {{ with .Params.tags }}
-          •
-          {{ range . }}
-            <a href="/tags/{{ urlize . }}">#{{ . }}</a>&nbsp;
-          {{ end }}
-        {{ end }}
-      </p>
-
-      {{ with .Params.abstract }}
-        <div class="abstract">{{ . }}</div>
-      {{ end }}
+      <p class="authors">{{ delimit (or .Params.authors (slice .Site.Params.author)) " • " }}</p>
+      <p><time datetime="{{ .Date }}">{{ .Date.Format "2006-01-02" }}</time>{{ with .Params.tags }} • {{ range . }}<a href="/tags/{{ urlize . }}">#{{ . }}</a>&nbsp;{{ end }}{{ end }}</p>
+      {{ with .Params.abstract }}<div class="abstract">{{ . }}</div>{{ end }}
     </header>
-
     {{ if .Params.toc }}{{ .TableOfContents }}{{ end }}
-
     {{ .Content }}
   </article>
 </main>

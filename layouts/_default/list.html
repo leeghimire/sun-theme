@@ -2,12 +2,7 @@
 <main>
   <table>
     <thead>
-      <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Title</th>
-        <th scope="col">Importance</th>
-        <th scope="col">Tags</th>
-      </tr>
+      <tr><th>Date</th><th>Title</th><th>Importance</th><th>Tags</th></tr>
     </thead>
     <tbody>
       {{ range .Pages.ByDate.Reverse }}
@@ -15,11 +10,7 @@
         <td>{{ .Date.Format "2006-01-02" }}</td>
         <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
         <td>{{ .Params.importance | default 0 }}</td>
-        <td>
-          {{ range .Params.tags }}
-            <a href="/tags/{{ urlize . }}">#{{ . }}</a>&nbsp;
-          {{ end }}
-        </td>
+        <td>{{ range .Params.tags }}<a href="/tags/{{ urlize . }}">#{{ . }}</a>&nbsp;{{ end }}</td>
       </tr>
       {{ end }}
     </tbody>

@@ -1,24 +1,21 @@
-baseURL           = "https://leeghimire.com/"
-title             = "Lee Ghimire"
+baseURL           = "https://example.com/"
+title             = "SUN"
 languageCode      = "en-us"
 theme             = "sun-theme"
 enableRobotsTXT   = true
 pluralizeListTitles = false
-disableKinds      = ["taxonomy"]
 
 [markup]
   defaultMarkdownHandler = "goldmark"
-
   [markup.goldmark.renderer]
     unsafe = true
-
   [markup.tableOfContents]
     startLevel = 2
     endLevel   = 4
     ordered    = false
 
 [params]
-  author       = "Lee Ghimire"
-  description  = "Lee Ghimire’s personal website"
-  keywords     = ["Lee Ghimire","blog","portfolio"]
+  author       = "SUN"
+  description  = "In Praise Of The Sun"
+  keywords     = ["SUN"]
   images       = ["sun.svg"]
